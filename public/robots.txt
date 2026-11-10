@@ -1,0 +1,10 @@
+# Robots directive for Khatri Mobile Zone
+User-agent: *
+Allow: /
+
+# Prevent indexing of private admin portal and API endpoints
+Disallow: /admin
+Disallow: /api/
+
+# Update with your production domain when deployed:
+# Sitemap: https://your-domain.com/sitemap.xml

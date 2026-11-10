@@ -1,0 +1,457 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   DESIGN.md — framer.com
+   Dark-canvas Builder Marketing Aesthetic for Khatri Mobile Zone
+   ========================================================================== */
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #090909;
+    font-feature-settings: "cv01" 1, "cv05" 1, "cv09" 1, "cv11" 1, "ss03" 1, "ss07" 1, "dlig" 1;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.30;
+    letter-spacing: -0.15px;
+    color: #ffffff;
+    background-color: #090909;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "GT Walsheim Medium", "Mona Sans", "Inter Variable", "Inter", system-ui, sans-serif;
+    font-weight: 500;
+    color: #ffffff;
+  }
+
+  /* Single chromatic accent focus per DESIGN.md */
+  :focus-visible {
+    outline: 2px solid #0099ff;
+    outline-offset: 2px;
+  }
+
+  /* Minimal dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #090909;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #262626;
+    border-radius: 100px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #333333;
+  }
+
+  ::selection {
+    background: rgba(0, 153, 255, 0.3);
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  /* ── Spatial Container ─────────────────────────────────────────────── */
+  .container-site {
+    width: 100%;
+    max-width: 1199px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (min-width: 810px) {
+    .container-site {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+
+  /* ── Buttons (framer.com tokens) ───────────────────────────────────── */
+
+  /* button-primary: White pill on dark canvas */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.0;
+    letter-spacing: -0.14px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.15s ease;
+  }
+  .btn-primary:hover {
+    opacity: 0.92;
+  }
+  .btn-primary:active {
+    transform: scale(0.96);
+  }
+
+  /* button-secondary: Charcoal pill */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background-color: #141414;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.0;
+    letter-spacing: -0.14px;
+    border-radius: 100px;
+    border: 1px solid #262626;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .btn-secondary:hover {
+    background-color: #1c1c1c;
+    border-color: #333333;
+  }
+  .btn-secondary:active {
+    transform: scale(0.96);
+  }
+
+  /* button-translucent: Lifted secondary on busy backgrounds */
+  .btn-translucent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background-color: rgba(28, 28, 28, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.0;
+    letter-spacing: -0.14px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+  }
+  .btn-translucent:hover {
+    background-color: rgba(40, 40, 40, 0.95);
+  }
+
+  /* button-icon-circular: 40px circle */
+  .btn-icon-circular {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #141414;
+    color: #ffffff;
+    border-radius: 9999px;
+    border: 1px solid #262626;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .btn-icon-circular:hover {
+    background-color: #1c1c1c;
+    border-color: #333333;
+  }
+  .btn-icon-circular:active {
+    transform: scale(0.94);
+  }
+
+  /* ── Tab Pills (pricing-tab-default + pricing-tab-selected) ────────── */
+  .tab-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    background-color: #090909;
+    color: #999999;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.0;
+    letter-spacing: -0.14px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+  .tab-pill:hover {
+    color: #ffffff;
+  }
+  .tab-pill-selected {
+    background-color: #1c1c1c;
+    color: #ffffff;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* ── Cards & Containers ────────────────────────────────────────────── */
+
+  /* pricing-card / standard surface-1 card */
+  .framer-card {
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 20px;
+    padding: 24px;
+    color: #ffffff;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .framer-card:hover {
+    border-color: #383838;
+  }
+
+  /* pricing-card-featured: surface-2 elevated */
+  .framer-card-featured {
+    background-color: #1c1c1c;
+    border: 1px solid #333333;
+    border-radius: 20px;
+    padding: 24px;
+    color: #ffffff;
+    box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.12), 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ── Atmospheric Gradient Spotlight Cards (Signature!) ────────────── */
+  .spotlight-card-violet {
+    background: linear-gradient(135deg, #6a4cf5 0%, #3e1eb3 100%);
+    border-radius: 30px;
+    padding: 32px;
+    color: #ffffff;
+    box-shadow: 0 20px 40px rgba(106, 76, 245, 0.25);
+  }
+
+  .spotlight-card-magenta {
+    background: linear-gradient(135deg, #d44df0 0%, #8719a8 100%);
+    border-radius: 30px;
+    padding: 32px;
+    color: #ffffff;
+    box-shadow: 0 20px 40px rgba(212, 77, 240, 0.25);
+  }
+
+  .spotlight-card-orange {
+    background: linear-gradient(135deg, #ff7a3d 0%, #d4430a 100%);
+    border-radius: 30px;
+    padding: 32px;
+    color: #ffffff;
+    box-shadow: 0 20px 40px rgba(255, 122, 61, 0.25);
+  }
+
+  .spotlight-card-coral {
+    background: linear-gradient(135deg, #ff5577 0%, #c4183d 100%);
+    border-radius: 30px;
+    padding: 32px;
+    color: #ffffff;
+    box-shadow: 0 20px 40px rgba(255, 85, 119, 0.25);
+  }
+
+  /* ── Form Inputs ───────────────────────────────────────────────────── */
+  .framer-input {
+    width: 100%;
+    background-color: #141414;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.30;
+    letter-spacing: -0.15px;
+    border-radius: 10px;
+    border: 1px solid #262626;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .framer-input::placeholder {
+    color: #999999;
+  }
+  .framer-input:focus {
+    border-color: #0099ff;
+    box-shadow: 0 0 0 1px rgba(0, 153, 255, 0.25);
+  }
+
+  /* ── Top Nav ───────────────────────────────────────────────────────── */
+  .framer-top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: 56px;
+    background-color: rgba(9, 9, 9, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid #1a1a1a;
+    display: flex;
+    align-items: center;
+  }
+
+  .framer-nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.40;
+    letter-spacing: -0.14px;
+    color: #999999;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .framer-nav-link:hover {
+    color: #ffffff;
+  }
+
+  /* ── Text Link (accent-blue per DESIGN.md) ─────────────────────────── */
+  .link-blue {
+    color: #0099ff;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+  .link-blue:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  /* ── Product Card in Catalog ───────────────────────────────────────── */
+  .framer-product-card {
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .framer-product-card:hover {
+    border-color: #383838;
+    transform: translateY(-2px);
+  }
+
+  /* ── Marquee ───────────────────────────────────────────────────────── */
+  .framer-marquee-bar {
+    background-color: #090909;
+    border-bottom: 1px solid #1a1a1a;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 0;
+  }
+
+  .framer-marquee-track {
+    display: inline-flex;
+    animation: marquee 30s linear infinite;
+  }
+
+  /* ── Bottom Floating Bar ───────────────────────────────────────────── */
+  .framer-floating-bar {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 90;
+    background-color: rgba(20, 20, 20, 0.90);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid #262626;
+    border-radius: 100px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* ── Hairline Divider ──────────────────────────────────────────────── */
+  .divider-hairline {
+    border: none;
+    border-top: 1px solid #1a1a1a;
+  }
+}
+
+@layer utilities {
+  /* Headline compression helper */
+  .poster-headline {
+    font-family: "GT Walsheim Medium", "Mona Sans", "Inter Variable", "Inter", sans-serif;
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -4.25px;
+  }
+  @media (max-width: 810px) {
+    .poster-headline {
+      letter-spacing: -2.5px;
+      line-height: 1.0;
+    }
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Admin portal & legacy compatibility classes mapped to Framer design tokens */
+  .bg-obsidian {
+    background-color: #090909;
+  }
+  .text-obsidian {
+    color: #090909;
+  }
+  .border-metallic-border {
+    border-color: #262626;
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #ffffff 0%, #999999 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .glass {
+    background-color: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid #262626;
+  }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 100px;
+    color: #999999;
+    font-size: 13px;
+    transition: all 0.15s ease;
+  }
+  .btn-ghost:hover {
+    color: #ffffff;
+    background-color: #141414;
+  }
+}

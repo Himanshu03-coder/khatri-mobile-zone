@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Replace https://khatrimobilezone.in with your live domain before production launch -->
+  <url>
+    <loc>https://khatrimobilezone.in/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://khatrimobilezone.in/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://khatrimobilezone.in/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://khatrimobilezone.in/privacy-policy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://khatrimobilezone.in/terms-and-conditions</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+</urlset>

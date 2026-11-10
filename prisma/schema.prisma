@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Product {
+  id              String   @id @default(uuid())
+  name            String
+  brand           String
+  type            ProductType
+  condition       Condition @default(NEW_SEAL_PACK)
+  ram             String?
+  storage         String?
+  colors          String   // comma-separated colors
+  highlight       String?
+  originalPrice   Int      // in paise (₹ * 100)
+  offerPrice      Int      // in paise (₹ * 100)
+  discountTag     String?
+  stockStatus     StockStatus @default(IN_STOCK)
+  featured        Boolean  @default(false)
+  imageUrl        String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model GalleryImage {
+  id        String   @id @default(uuid())
+  url       String
+  caption   String?
+  category  GalleryCategory @default(INTERIOR)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model StoreSettings {
+  id                String   @id @default("singleton")
+  shopName          String   @default("Khatri Mobile Zone")
+  tagline           String   @default("Your Trusted Mobile Partner")
+  aboutDescription  String?  @db.Text
+  marqueeText       String   @default("🔥 Diwali Dhamaka! Up to 40% OFF on all Smartphones | 📱 New iPhone 15 Series in Stock | 💳 Zero Down Payment EMI Available")
+  address           String   @default("Shop No. 12, Palika Bazar, Fatehabad, Haryana 125050")
+  mapsLink          String   @default("https://maps.app.goo.gl/KhatriMobileZoneFatehabad")
+  phonePrimary      String   @default("+91-9876543210")
+  phoneSecondary    String?  @default("+91-9876543211")
+  whatsappNumber    String   @default("919876543210")
+  email             String   @default("khatrimobilezone@email.com")
+  openingHours      String   @default("Mon-Sat: 10:00 AM - 9:00 PM | Sun: Closed")
+  weeklyOff         String   @default("Sunday")
+  instagramUrl      String   @default("https://instagram.com/khatrimobilezone")
+  facebookUrl       String   @default("https://facebook.com/khatrimobilezone")
+  youtubeUrl        String   @default("https://youtube.com/@khatrimobilezone")
+  whatsappChannelUrl String  @default("https://whatsapp.com/channel/khatrimobilezone")
+  adminPassword     String   @default("khatri@2024")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+enum ProductType {
+  SMARTPHONE
+  TABLET
+  SMARTWATCH
+  AUDIO
+  ACCESSORY
+  WEARABLE
+}
+
+enum Condition {
+  NEW_SEAL_PACK
+  OPEN_BOX
+  PRE_OWNED
+  CERTIFIED_PRE_OWNED
+}
+
+enum StockStatus {
+  IN_STOCK
+  LIMITED_STOCK
+  OUT_OF_STOCK
+}
+
+enum GalleryCategory {
+  STOREFRONT
+  INTERIOR
+  HAPPY_CUSTOMERS
+  OFFERS
+}
